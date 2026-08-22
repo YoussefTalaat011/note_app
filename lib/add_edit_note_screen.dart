@@ -1,33 +1,43 @@
 import 'package:flutter/material.dart';
 
-class AddNoteScreen extends StatefulWidget {
-  const AddNoteScreen({super.key});
+class AddEditNoteScreen extends StatefulWidget {
+  final String? initialTitle;
+  final String? intialContent;
+
+  const AddEditNoteScreen({super.key, this.initialTitle, this.intialContent});
 
   @override
-  State<AddNoteScreen> createState() => _AddNoteScreenState();
+  State<AddEditNoteScreen> createState() => _AddEditNoteScreenState();
 }
 
-class _AddNoteScreenState extends State<AddNoteScreen> {
-  final titleController = TextEditingController();
-  final contentController = TextEditingController();
+class _AddEditNoteScreenState extends State<AddEditNoteScreen> {
+  bool isEditing = false;
+
+  late final titleController = TextEditingController(text: widget.initialTitle);
+  late final contentController = TextEditingController(
+    text: widget.intialContent,
+  );
 
   void saveNote() {
-    setState(() {
-      if (titleController.text.trim().isEmpty) {
-        Navigator.pop(context);
-      }
-    });
+    if (titleController.text.trim().isEmpty) {
+      Navigator.pop(context);
+      return;
+    }
     // ToDo: Save note to the database
     Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
+    if (widget.initialTitle != null) {
+      isEditing = true;
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          "Add note",
+          isEditing ? "Edit note" : "Add note",
           style: TextStyle(
             color: Colors.black,
             fontSize: 32,
