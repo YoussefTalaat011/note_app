@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/delete.dart';
-import 'search.dart';
 import 'notesList.dart';
 
 void main() {
