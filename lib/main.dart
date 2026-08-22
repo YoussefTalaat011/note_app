@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/delete.dart';
 import 'search.dart';
+import 'notesList.dart';
+
 void main() {
-  runApp(const MyApp());
-}
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
+  runApp(MyApp());
 }
 
-class _MyAppState extends State<MyApp> {
-  @override
+class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SearchPage(),
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
