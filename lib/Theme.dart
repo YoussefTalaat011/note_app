@@ -5,7 +5,7 @@ class NoteTheme {
     return ThemeData(
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: AppBarTheme(
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.deepPurple,
         centerTitle: true,
         elevation: 0,
         titleTextStyle: TextStyle(
@@ -39,7 +39,7 @@ class NoteTheme {
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.lightBlue,
-        foregroundColor: Colors.blue,
+        foregroundColor: Colors.black,
         elevation: 4,
 
         shape: RoundedRectangleBorder(
@@ -72,7 +72,7 @@ class NoteTheme {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        titleTextStyle: TextStyle(fontSize: 15),
+        titleTextStyle: TextStyle(fontSize: 15, color: Colors.black),
         contentTextStyle: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
       ),
       iconTheme: IconThemeData(

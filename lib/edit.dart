@@ -41,18 +41,18 @@ class _AddEditNoteScreenState extends State<AddEditNoteScreen> {
         child: Builder(
           builder: (context) {
             return Scaffold(
-              backgroundColor: Colors.white,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               appBar: AppBar(
                 title: Text(
                   isEditing ? "Edit note" : "Add note",
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).appBarTheme.titleTextStyle?.color ?? Colors.black,
+                    fontSize: Theme.of(context).appBarTheme.titleTextStyle?.fontSize ?? 32,
+                    fontWeight: Theme.of(context).appBarTheme.titleTextStyle?.fontWeight ?? FontWeight.bold,
                   ),
                 ),
-                centerTitle: true,
-                backgroundColor: Colors.white,
+                centerTitle: Theme.of(context).appBarTheme.centerTitle ?? true,
+                backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
                 actions: [
                   IconButton(
                     onPressed: () {
@@ -75,9 +75,6 @@ class _AddEditNoteScreenState extends State<AddEditNoteScreen> {
                       decoration: InputDecoration(
                         labelText: "Title",
                         hintText: "Enter title...",
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(style: BorderStyle.solid),
-                        ),
                       ),
                     ),
                     Expanded(

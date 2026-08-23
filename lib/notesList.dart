@@ -35,14 +35,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F3FF),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
 
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF5F3FF),
-        centerTitle: true,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        centerTitle: Theme.of(context).appBarTheme.centerTitle ?? true,
         title: const Text(
           'Notes',
-          style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
 
@@ -56,9 +60,6 @@ class _HomePageState extends State<HomePage> {
               decoration: InputDecoration(
                 hintText: 'Search notes...',
                 prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
               ),
 
               // Search by title only
@@ -132,7 +133,6 @@ class _HomePageState extends State<HomePage> {
                                     IconButton(
                                       icon: const Icon(
                                         Icons.edit,
-                                        color: Colors.black,
                                       ),
                                       onPressed: () async {
                                         final updatedNote =

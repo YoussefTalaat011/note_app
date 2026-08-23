@@ -39,15 +39,16 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F3FF),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
 
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF5F3FF),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
-        centerTitle: true,
+        centerTitle: Theme.of(context).appBarTheme.centerTitle ?? true,
         title: const Text(
           'Search Notes',
           style: TextStyle(
+            color: Colors.black,
             fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
@@ -65,27 +66,6 @@ class _SearchScreenState extends State<SearchScreen> {
               decoration: InputDecoration(
                 hintText: 'Search by title...',
                 prefixIcon: const Icon(Icons.search),
-
-                filled: true,
-                fillColor: Colors.white,
-
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide.none,
-                ),
-
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide.none,
-                ),
-
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: Colors.deepPurple,
-                    width: 2,
-                  ),
-                ),
               ),
             ),
 
